@@ -1,0 +1,1 @@
+"0","rename(covid_data, Neg = Negative) #won't permanently change, need to assign it to a new variable or reallot to original file to overwrite it"

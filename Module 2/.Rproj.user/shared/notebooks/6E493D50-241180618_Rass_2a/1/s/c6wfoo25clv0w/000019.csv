@@ -1,0 +1,1 @@
+"0","shipdata %>% select(-incidents) %>% arrange(desc(type)) %>% arrange(construction) #it first arranged wrt to construction, then type"

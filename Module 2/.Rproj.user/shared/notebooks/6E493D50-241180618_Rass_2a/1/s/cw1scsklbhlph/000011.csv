@@ -1,0 +1,7 @@
+"0","youngsmokers<-nrow(filter(smokeban, age<25))"
+"0","newnum<-youngsmokers/(nrow(smokeban))"
+"0","newnum*100 #how to write this into a string?"
+"1","[1]"
+"1"," 11.97"
+"1","
+"

@@ -110,8 +110,8 @@ Spess
 > `rename` can be used to easily rename columns with an argument suggesting that *new_column_name* = *old_column_name*.
 
 ```{r}
-rename(covid_data, Neg = Negative) #won't permanently change, need to assign it to a new variable or reallot to original file to ovewrite it
-covid_data
+rename(covid_data, Neg = Negative) #won't permanently change, need to assign it to a new variable or reallot to original file to overwrite it
+covid_data #if you run only rename codeline and not covid_data, then we can see the change
 ```
 
 *Q3. Oops, what did go wrong here? Why can't we see the column name changed?*

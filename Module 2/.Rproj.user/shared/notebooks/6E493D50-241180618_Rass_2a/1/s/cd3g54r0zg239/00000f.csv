@@ -1,0 +1,2 @@
+"0","#select(smokeban, c(afam,hispanic))"
+"0","select(smokeban, -c(afam,hispanic))"

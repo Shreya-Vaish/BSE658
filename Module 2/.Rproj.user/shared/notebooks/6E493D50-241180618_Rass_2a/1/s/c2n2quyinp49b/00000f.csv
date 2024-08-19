@@ -1,0 +1,12 @@
+"0","spec(smokeban)"
+"1","cols(
+  rownames = [32mcol_double()[39m,
+  smoker = [31mcol_character()[39m,
+  ban = [31mcol_character()[39m,
+  age = [32mcol_double()[39m,
+  education = [31mcol_character()[39m,
+  afam = [31mcol_character()[39m,
+  hispanic = [31mcol_character()[39m,
+  gender = [31mcol_character()[39m
+)
+"

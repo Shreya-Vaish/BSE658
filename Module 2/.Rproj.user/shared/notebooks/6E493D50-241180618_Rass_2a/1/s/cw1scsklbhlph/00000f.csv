@@ -1,0 +1,6 @@
+"0","sum(is.na(smokeban$hispanic))"
+"1","[1]"
+"1"," 0"
+"1","
+"
+"0","filter(smokeban,hispanic==""yes"" & smoker==""yes"")"

@@ -1,0 +1,2 @@
+"0","newphddata<-mutate(phddata,success_dependency = prestige/mentor) #mutate does not work unless you assign a vairable to the changed dataframe"
+"0","arrange(newphddata,success_dependency)"

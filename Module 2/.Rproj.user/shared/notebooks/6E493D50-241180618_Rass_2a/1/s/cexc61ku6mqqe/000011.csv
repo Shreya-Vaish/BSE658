@@ -1,0 +1,6 @@
+"0","#commented as it asks for restarting R"
+"0","#install.packages(""remotes"")"
+"0","#remotes::install_github(""Shreya-Vaish/BSE658"") #saves them to temp, how can i check?"
+"0","library(tidyverse)"
+"0","library(dplyr)"
+"0","library(tibble)"
