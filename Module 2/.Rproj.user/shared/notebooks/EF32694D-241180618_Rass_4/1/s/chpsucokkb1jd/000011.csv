@@ -1,0 +1,4 @@
+"0","setwd(""C:/Users/ushad/Documents/GitHub/BSE658/Module 3/Notebooks"")"
+"0",""
+"0","load( ""parenthood.Rdata"" )"
+"0","head(parenthood)"

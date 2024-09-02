@@ -1,0 +1,136 @@
+---
+title: "Coding Assignment 3 - 241180618"
+output:
+  pdf_document: default
+  html_notebook: default
+  html_document:
+    df_print: paged
+---
+
+```{R}
+getwd()
+```
+Rdata files contain multiple datasets, while a csv contains only 1 dataset
+```{r}
+library(tibble)
+library(tidyverse)
+library(lsr)
+
+#library(dplyr)
+tibb<-read_csv("C:/Users/ushad/Downloads/Arrests.csv")
+tibb
+```
+```{r}
+print(tibb$checks)
+```
+```{r}
+hist(tibb$checks)
+?hist
+```
+```{r}
+library(psych)
+skew(tibb$checks) #data seems negatively skewed, although its ordinal
+```
+```{r}
+tibb.5mean<-mean(tibb$checks[1:5])
+tibb.5mean
+tibb.mean<-mean(tibb$checks)
+tibb.mean
+```
+```{r}
+tibb.med<-median(tibb$checks)
+tibb.med #since ordinal, expected to be a whole no.
+tibb.mode<-modeOf(tibb$checks)
+tibb.mode #most frquently occuring value, validated by histogram
+tibb.mode2<-modeOf(tibb$age)
+tibb.mode2
+```
+```{r}
+dataset <- c(-15,2,3,5,6,8,9,12)
+meanyes<-mean(x = dataset, trim = .13)
+mean<-mean(dataset)
+meanno<-mean(x=dataset, trim=0.12)
+meanyes
+mean
+meanno
+#Try calculating 12% trimmed mean for above dataset - does not do anything, since 12 percent of 8 values is less than 1 and cant select less than 1 value, it will be 0
+```
+```{r}
+tibb.range<-range(tibb$checks)
+tibb.range
+rangedata<-range(dataset)
+rangedata
+#range() not giving difference, it is the same range used in assignment 1
+```
+```{r}
+tibb2<-read_csv("C:/Users/ushad/Downloads/SmokeBan.csv")
+tibb2
+```
+```{r}
+newquant<-quantile(x = tibb2$age, prob = 0.25)
+newquant2<-quantile(x = tibb2$age, prob = 0.75)
+newquant
+newquant2
+intqra<-IQR(tibb2$age)
+nq3<-newquant2-newquant
+nq3 #why does this show 75% with the value (like newquant and newquant2)?
+mode(nq3)
+intqra
+```
+```{r}
+vari<-var(tibb2$age)
+stddev<-sd(tibb2$age)
+vari
+stddev
+vari^(1/2)
+```
+```{r}
+summary(tibb2$age)
+```
+```{r}
+var(tibb$checks)
+```
+```{r}
+sd(tibb$checks)
+```
+```{r}
+summary(tibb$checks)
+```
+```{r}
+?who  #The who function prints out some basic information about all variables in the workspace.
+```
+```{r}
+describeBy(x=tibb2)
+describeBy(x=tibb2, group = tibb2$education)
+#we get many dataframes, each describes the summary for a particular type of education, their n's would add up to the total number of datapoints
+```
+```{r}
+summary(tibb2)
+```
+
+
+```{r}
+by(data=tibb2, INDICES=tibb2$gender, FUN=summary) #gives summary for each gender separately, we can for eg see the difference in mean of ages for male and female and compare them simultaneously
+```
+```{r}
+by(data=tibb2, INDICES=tibb2$gender, FUN=describe)
+#gives 2 dataframes as output, each with summary in describe format for each sex
+```
+```{r}
+aggregate( x = age ~ gender + afam, 
+           data = tibb2,
+           FUN = median)
+#x is used instead of formula now
+```
+```{r}
+aggregate( x = age ~ afam + gender, 
+           data = tibb2,
+           FUN = median)
+#Try interchanging the positions of drug and therapy above - values are same, just order of arrangement is different, as 1st and 2nd col get interchanged
+```
+```{r}
+aggregate( x = age ~ colour + released, 
+           data = tibb,
+           FUN = median)
+```
+

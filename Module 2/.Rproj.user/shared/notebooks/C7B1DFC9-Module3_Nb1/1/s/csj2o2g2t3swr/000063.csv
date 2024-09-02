@@ -1,0 +1,2 @@
+"0","#i think n is the number of values for each category in therapy header, and since we see two outputs, each is for one value in that $ category"
+"0","#if $therapy is removed from indice, a large number of dataframes are shown (6*3) how is this number calculated? n is showing 1 in each dataframe, meaning in case of every point under mood.gain the dataframe is shown and that header has all 18 different values unlike groupings in the other 2 headers"

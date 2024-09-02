@@ -1,0 +1,1 @@
+"0","scatterplot( dan.grump ~ dan.sleep, data = parenthood, regLine = FALSE, smooth = FALSE)"

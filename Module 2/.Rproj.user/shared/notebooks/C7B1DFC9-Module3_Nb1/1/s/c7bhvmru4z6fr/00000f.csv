@@ -1,0 +1,6 @@
+"0","#Use var() for finding variance of afl.margins"
+"0","var(afl.margins)"
+"1","[1]"
+"1"," 679.8345"
+"1","
+"

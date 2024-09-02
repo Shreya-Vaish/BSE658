@@ -1,0 +1,4 @@
+"0","load(""work.Rdata"")"
+"0","cor(work)"
+"2","Error in cor(work) : 'x' must be numeric
+"

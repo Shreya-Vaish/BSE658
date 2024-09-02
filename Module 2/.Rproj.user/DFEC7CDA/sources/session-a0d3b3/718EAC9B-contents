@@ -1,0 +1,183 @@
+---
+title: "R Notebook"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+
+```{r}
+dataset <- c(-15,2,3,5,6,8,9,12)
+zscore<-(dataset-mean(dataset))/sd(dataset)
+zscore
+```
+```{r}
+setwd("C:/Users/ushad/Documents/GitHub/BSE658/Module 3/Notebooks")
+
+load( "parenthood.Rdata" )
+head(parenthood)
+```
+```{r}
+library(psych)
+describe(parenthood)
+```
+```{r}
+hist(parenthood$dan.sleep)
+hist(parenthood$baby.sleep)
+hist(parenthood$dan.grump)
+hist(parenthood$day)
+```
+```{r}
+#install.packages("car")
+#install.packages("Rcpp")
+library(car) #does not knit if unhashed
+```
+```{r}
+scatterplot( dan.grump ~ dan.sleep, data = parenthood, regLine = FALSE, smooth = FALSE)
+#scatterplot
+```
+```{r}
+scatterplot(baby.sleep ~ dan.grump, data=parenthood, smooth=FALSE)
+```
+baby sleep is positively correlated with dan sleep, dan sleep is negatively correlated with dan grump, dan grump is negatively correlated with baby sleep
+```{r}
+scatterplot(baby.sleep ~ dan.sleep, data=parenthood, smooth=FALSE)
+```
+```{r}
+cor(x = parenthood$dan.sleep, y = parenthood$dan.grump)
+```
+```{r}
+cor(parenthood) #gives matrix of values
+```
+```{r}
+load("C:/Users/ushad/Documents/GitHub/BSE658/Module 3/Notebooks/work.Rdata")
+#cor(work) shows error as work has non numeric data
+```
+```{r}
+library(lsr)
+correlate(parenthood)
+```
+```{r}
+correlate(parenthood, corr.method="spearman")
+```
+```{r}
+correlate(work)
+```
+```{r}
+cor(work$hours, work$pay)
+```
+
+
+```{r}
+load( "C:/Users/ushad/Documents/GitHub/BSE658/Module 3/Notebooks/effort.Rdata" )
+effort
+cor( effort$hours, effort$grade )
+scatterplot(effort$hours, effort$grade, regLine = TRUE, smooth = FALSE)
+cor(effort$hours, effort$grade, method="spearman")
+```
+```{r}
+load( "C:/Users/ushad/Documents/GitHub/BSE658/Module 3/Notebooks/anscombesquartet.Rdata" )
+cor(X1, Y1 )
+cor(X2, Y2 )
+cor(X3, Y3)
+cor(X4, Y4)
+```
+```{r}
+scatterplot(X1~Y1, smooth=FALSE)
+scatterplot(X2~Y2, smooth=FALSE)
+scatterplot(X3~Y3, smooth=FALSE)
+scatterplot(X4~Y4, smooth=FALSE)
+```
+```{r}
+load( "C:/Users/ushad/Documents/GitHub/BSE658/Module 3/Notebooks/parenthood2.Rdata" )
+print( parenthood2 )
+describe( parenthood2 ) 
+#n=91 for dan sleep, n=89 for baby sleep, n=92 for dan grump, which means dan sleep has 9, baby sleep has 11 and dan grump has 8 values missing as total n is 100 (given by days)
+```
+```{r}
+cor(parenthood2) #gives NA in matrix cells because there are missing values in all headers
+```
+```{r}
+correlate(parenthood2)
+```
+
+
+```{r}
+cor(parenthood2, use = "complete.obs") #not same as correlate function
+```
+```{r}
+cor(parenthood2, use = "pairwise.complete.obs") #gives result as same as correlate function
+```
+```{r}
+mean(x=parenthood2$baby.sleep, na.rm=TRUE)
+```
+```{r COLORFUL PLOTS SECTION}
+#install.packages("ggcorrplot") does not knit without hashing
+library(ggcorrplot)
+```
+```{r}
+data(mtcars)
+?data
+```
+
+
+```{r}
+summary(mtcars) #there are 11 columns
+```
+```{r}
+head(mtcars) #lets compute only for first 4 columns
+```
+```{r}
+newcor<-cor(mtcars[,1:4],mtcars[,1:4])
+newcor
+```
+```{r}
+correlate(mtcars[,1:4])
+
+```
+```{r}
+pval<-cor_pmat(mtcars[,1:4]) #p-value
+pval
+#what does head do? my round is not working
+```
+```{r}
+ggcorrplot(newcor) #does not take result of correlate function, only cor function as correlate function gives more results not just a matrix
+```
+```{r}
+ggcorrplot(newcor, method="circle")
+```
+
+
+```{r}
+ggcorrplot(newcor, hc.order = TRUE, outline.col = "yellow") #what is heirarchial clustering?
+#i think it arranges the squares in hot-cold order
+```
+```{r}
+ggcorrplot(newcor, hc.order=TRUE, type="lower", colors=c("green","white","orange"), lab=TRUE) 
+#3 temp colors, one for +ve 1, one for -ve 1, one for 0
+```
+
+
+```{r}
+ggcorrplot(newcor, hc.order=TRUE, type="upper",ggtheme = ggplot2::theme_gray)
+#shows only non redundant values
+#ggtheme changes bg color
+```
+```{r}
+ggcorrplot(newcor, hc.order=TRUE, type="upper", p.mat=pval) #no insignificant values
+```
+```{r}
+#took larger data to demo insignificant p values
+corsev<-cor(mtcars[,1:9])
+corsev
+corsevp<-cor_pmat(mtcars[,1:9])
+corsevp
+ggcorrplot(corsev, p.mat=corsevp, type="upper")
+```
+```{r}
+ggcorrplot(corsev, p.mat=corsevp, type="upper",insig = "blank")
+```
+```{r}
+?describe
+```
+

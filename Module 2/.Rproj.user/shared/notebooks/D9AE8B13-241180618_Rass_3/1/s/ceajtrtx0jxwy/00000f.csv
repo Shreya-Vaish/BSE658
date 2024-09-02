@@ -1,0 +1,6 @@
+"0","library(psych)"
+"0","skew(tibb$checks) #data seems negatively skewed, although its ordinal"
+"1","[1]"
+"1"," 0.4299042"
+"1","
+"

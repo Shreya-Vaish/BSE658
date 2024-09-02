@@ -1,0 +1,32 @@
+"0","mean(x=parenthood2$baby.sleep, na.rm=TRUE)
+"
+"1","[1]"
+"1"," 8.114494"
+"1","
+"
+"2","Warning messages:
+"
+"2","1: "
+"2","In formals(fun) :"
+"2"," argument is not a function
+"
+"2","2: "
+"2","In formals(fun) :"
+"2"," argument is not a function
+"
+"2","3: "
+"2","In formals(fun) :"
+"2"," argument is not a function
+"
+"2","4: "
+"2","In formals(fun) :"
+"2"," argument is not a function
+"
+"2","5: "
+"2","In formals(fun) :"
+"2"," argument is not a function
+"
+"2","6: "
+"2","In formals(fun) :"
+"2"," argument is not a function
+"

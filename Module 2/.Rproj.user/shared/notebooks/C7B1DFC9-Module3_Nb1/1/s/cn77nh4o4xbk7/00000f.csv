@@ -1,0 +1,7 @@
+"0","library(psych)"
+"0","skew(afl.margins)"
+"1","[1]"
+"1"," 0.7671555"
+"1","
+"
+"0","#Try finding skewness of afl.margins here"
